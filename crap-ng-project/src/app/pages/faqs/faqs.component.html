@@ -1,1 +1,8 @@
 <p>faqs works!</p>
+<button #btn (mouseover)="clickEvent($event)" (mouseout)="hoverExit($event)" type="button" class="btn btn-primary">Dark</button>
+
+<button #chicken (click)="switch(chicken)" type="button" class="btn btn-primary">Off</button>
+
+<div *ngIf = "flip">
+    <p>I am visible</p>
+</div>

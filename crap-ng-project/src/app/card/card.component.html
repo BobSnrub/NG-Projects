@@ -1,8 +1,8 @@
 <div class="card" style="width: 18rem;">
-    <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <img [src]="card.img" class="card-img-top" [alt]="card.title">
     <div class="card-body">
-        <h5 class="card-title">{{card.title}}</h5>
-        <p class="card-text">{{card.desc}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{card.fName}}</h5>
+        <p class="card-text">Slack name is {{card.sName}}</p>
+        <a [href]="card.hLink" target="_blank" class="btn btn-primary">Open In New Tab</a>
     </div>
 </div>
