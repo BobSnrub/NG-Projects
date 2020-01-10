@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { on } from 'cluster';
 
 @Component({
   selector: 'app-faqs',
@@ -26,7 +25,7 @@ export class FaqsComponent implements OnInit {
 
   switch(v) {
     console.log(v);
-    this.flip = this.flip ? !this.flip : !!!this.flip;
+    this.flip = this.flip ? !this.flip : !this.flip;
     
     v.innerText = this.flip ? 'Off' : 'On';
     
