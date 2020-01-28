@@ -15,21 +15,21 @@ export class HomeComponent implements OnInit {
   // ];
   trash: Student[] = [
     {
-      fName: 'Jon',
-      lName: 'Stewart',
-      sName: 'JonStewart',
+      fN: 'Jon',
+      lN: 'Stewart',
+      sN: 'JonStewart',
       pNumber: '44444444',
     },
     {
-      fName: 'Joe',
-      lName: 'Dontknow',
-      sName: 'mofo',
+      fN: 'Joe',
+      lN: 'Dontknow',
+      sN: 'mofo',
       pNumber: '8888888',
     },
     {
-      fName: 'Rob',
-      lName: 'Burns',
-      sName: 'Robert Burns',
+      fN: 'Rob',
+      lN: 'Burns',
+      sN: 'Robert Burns',
       pNumber: '3573454684',
     }
   ];
