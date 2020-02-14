@@ -1,0 +1,56 @@
+.hero-img{
+    color: white;
+    background-image: url("/assets/images/ScreenOfCode_edited.jpg");
+    height: fit-content;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.h-100{
+    height: 100%;
+}
+
+.profile-pic{
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.my-card{
+    border: 5px solid rgb(82, 82, 82);
+}
+
+.white-bg{
+    text-align: center;
+    background-color: white;
+    color: rgb(82, 82, 82);
+}
+
+.orange-bg{
+    background-color: #222222;
+    color: white;
+}
+
+.avitar{
+    border: 3px solid rgb(82, 82, 82);
+    border-radius: 50%;
+    // max-width: 175px;
+}
+
+.orange-hr{
+    border: 1px solid rgb(82, 82, 82);
+    width: 50%;
+}
+
+.about-icons{
+    width: 20px; border: 2px solid white; border-radius: 3px;
+}
+
+.about-logos{
+    max-width: 150px; 
+    max-height: 150px;
+}
+
+p{
+    font-size: 18px
+}

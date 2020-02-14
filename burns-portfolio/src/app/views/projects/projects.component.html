@@ -1,0 +1,39 @@
+<!-- <p>projects works!</p> -->
+<div class="container">
+    <div class="row center">
+        <h1 class="wht-color p-4 pb-2 center">My Projects</h1>
+    </div>
+    <div class="row">
+        <div class="col no-pad no-margin d-flex justify-content-center align-items-stretch pb-3" *ngFor="let project of projects">
+            <div class="card m-2" style="width: 18rem;">
+                <img src="{{project.cardImg}}" class="card-img-top img-fluid" alt="image that blind people can't see">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold card-ta">{{project.cardTitle}}</h5>
+                    <p class="card-text">{{project.cardDesc}}</p>
+                </div>
+                <div class="row no-pad no-margin p-2 center">
+                    <div class="col-2 no-pad no-margin center" *ngFor="let img of project.iconUrls">
+                        <img src="{{img}}" style="max-width: 25px; max-height: 25px;" alt="icon">
+                    </div>
+                </div>
+                <a href="{{project.projectURL}}" target="_blank" class="btn btn-dark mx-3 mb-3 font-weight-bold">{{project.linkText}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col no-pad d-flex justify-content-center" *ngFor='let product of products'>
+            <div class="card m-2">
+                <img src="{{product.imgSource}}" class="card-img-top" alt="image of item">
+                <div class="card-body pb-0">
+                    <h5 class="card-title">{{product.pName}}</h5>
+                    <h4 class="font-weight-bold pink">${{product.price}}</h4>
+                    <p class="card-text">{{product.additionalInfo}}</p>
+                </div>
+                <a routerLink="/details/{{product.pNameURL}}/{{product.id}}" class="btn btn-primary mx-3 mb-3">View</a>
+            </div>
+        </div>
+    </div>
+</div> -->
