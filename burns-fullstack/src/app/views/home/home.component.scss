@@ -1,0 +1,60 @@
+@font-face {
+  font-family: pacifico-font;
+  src: url("/assets/fonts/Pacifico-Regular.ttf");
+}
+
+.logo-font {
+  font-weight: lighter;
+  font-family: pacifico-font;
+  font-size: 75px;
+}
+
+.firstbg {
+  // background-image: url(assets/images/1st.jpg);
+  height: 150vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  //   background-attachment: fixed;
+  position: relative;
+
+  z-index: 1;
+  -webkit-box-shadow: 0 8px 6px -5px black;
+  -moz-box-shadow: 0 8px 6px -5px black;
+  box-shadow: 0 8px 6px -5px black;
+}
+
+.secondbg {
+  // background-image: url(assets/images/2nd.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+
+  //   border-bottom: 5px solid white;
+}
+
+.thirdbg {
+  // background-image: url(assets/images/3rd.jpg);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  //   background-attachment: fixed;
+  position: relative;
+}
+
+.hero-content {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.no-border {
+  border: none !important;
+}

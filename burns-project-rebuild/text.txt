@@ -1,0 +1,4 @@
+urlBasePt1='https://api.openwheathermap.org/data/2.5/';
+urlTypePt2='forecast?';
+urlCityPt3='id=5367565';
+urlKeyPt4='&appid=ce2888cb1a06bd6877fe6ef82434a488';

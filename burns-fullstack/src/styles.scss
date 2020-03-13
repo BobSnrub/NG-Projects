@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+@font-face {
+  font-family: pacifico-font;
+  src: url("/assets/fonts/Pacifico-Regular.ttf");
+}
+
+.pacifico-font{
+    font-family: pacifico-font;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.center-y {
+  display: flex;
+  align-items: center;
+}
+
+.no-pad {
+  padding: 0px;
+}
+
+.no-margin {
+  margin: 0px;
+}

@@ -1,0 +1,107 @@
+<div class="container-fluid p-2 p-md-5">
+    <div class="no-pad no-margin center">
+        <input #userInput (keyup.enter)="pressedEnter(userInput)" class="mt-5 col-11 center" type="text" aria-label="Search by city or zip" placeholder="Search by City Or Zip">
+    </div>
+    <div class="row no-pad center">
+
+        
+        <div *ngFor="let city of weatherDataArr" class="col-12 col-lg-6 no-pad center p-3">
+            <div class="card col-11">
+                <div class="card-body">
+                    <div class="row no-pad no-margin">
+                        <div class="col-6 no-pad no-margin">
+                            <h1 class="card-title center-y px-3 font-weight-bold my-4">{{city.weather.name}}</h1>
+                        </div>
+                        <div class="col-6 no-pad no-margin center-y d-flex justify-content-end">
+                            <div class="no-pad no-margin rounded p-1" style="border: 2px solid red;">
+                                <img src="/assets/images/x-png.png" alt="remove forecast" width="25px">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col no-pad no-margin">
+                        <div class="row no-pad no-margin center center-y weather-row p-3 py-4">
+                            <img src="/assets/images/03d.png" class="card-img-top img-fluid no-pad col-4 img-border bg-white mx-2" alt="...">
+                            <h1 class="font-weight-bold m-0 ml-md-5">{{kToF(city.weather.main.temp)}}°</h1>
+                            <div class="col no-pad m-0 ml-md-4 text-center">
+                                <!-- <p class="no-margin">{{weatherDataArr[0].cod}}</p>  -->
+                                <p class="no-margin">{{city.weather.cod}}</p>
+                                <p class="no-margin">weatherShit</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col no-pad no-margin center pt-4">
+                        <div class="row no-pad no-margin d-flex justify-content-around text-center">
+
+                            <!-- <div *ngFor="let day of forecastDays" class="col-6 col-sm-3 no-pad forecast-items"> -->
+                                <!-- <div class="item-border no-pad no-margin"> -->
+                                    <!-- <h6>{{day.dt_txt.substring(0, day.dt_txt.length - 9)}}</h6> -->
+                                    <!-- <img src="/assets/images/{{day.weather[0].icon}}.png" class="img-fluid no-pad img-border mb-2 bg-white" alt="..." style="max-width: 90%;"> -->
+                                    <!-- <h5>{{kToF(day.main.temp_max)}}°</h5>
+                                    <h6>{{kToF(day.main.temp_min)}}°</h6> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
+
+                            <!-- <div class="col-6 col-sm-3 no-pad forecast-items">
+                                <div class="item-border no-pad no-margin">
+                                    <h6>Fri</h6>
+                                    <img src="/assets/images/03d.png" class="img-fluid no-pad img-border mb-2 bg-white" alt="..." style="max-width: 90%;">
+                                    <h5>66°</h5>
+                                    <h6>44°</h6>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-3 no-pad forecast-items">
+                                <div class="item-border no-pad no-margin">
+                                    <h6>Fri</h6>
+                                    <img src="/assets/images/03d.png" class="img-fluid no-pad img-border mb-2 bg-white" alt="..." style="max-width: 90%;">
+                                    <h5>66°</h5>
+                                    <h6>44°</h6>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-3 no-pad forecast-items">
+                                <div class="item-border no-pad no-margin">
+                                    <h6>Fri</h6>
+                                    <img src="/assets/images/03d.png" class="img-fluid no-pad img-border mb-2 bg-white" alt="..." style="max-width: 90%;">
+                                    <h5>66°</h5>
+                                    <h6>44°</h6>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-3 no-pad forecast-items">
+                                <div class="item-border no-pad no-margin">
+                                    <h6>Fri</h6>
+                                    <img src="/assets/images/03d.png" class="img-fluid no-pad img-border mb-2 bg-white" alt="..." style="max-width: 90%;">
+                                    <h5>66°</h5>
+                                    <h6>44°</h6>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-3 no-pad forecast-items">
+                                <div class="item-border no-pad no-margin">
+                                    <h6>Fri</h6>
+                                    <img src="/assets/images/03d.png" class="img-fluid no-pad img-border mb-2 bg-white" alt="..." style="max-width: 90%;">
+                                    <h5>66°</h5>
+                                    <h6>44°</h6>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-sm-3 no-pad forecast-items">
+                                <div class="item-border no-pad no-margin">
+                                    <h6>Fri</h6>
+                                    <img src="/assets/images/03d.png" class="img-fluid no-pad img-border mb-2 bg-white" alt="..." style="max-width: 90%;">
+                                    <h5>66°</h5>
+                                    <h6>44°</h6>
+                                </div>
+                            </div> -->
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
