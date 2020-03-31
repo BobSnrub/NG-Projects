@@ -1,13 +1,12 @@
-<div class="navbar sticky-top">
-    <div class="row" style="width: 100%;">
-
+<div class="navbar sticky-top around">
 
         <!-- <div *ngIf="buttonBool" (click)="navBtnClick()" class="btn btn-primary">...</div> -->
 
-        <div class="col-12 col-lg no-pad no-margin px-3 center center-y">
+        <div class="col-12 col-lg no-pad center center-y">
             <img *ngIf="buttonBool" (click)="navBtnClick()" class="menu-img mr-auto"
-                src="/assets/images/hamburgerMenu.png" alt="">
-            <a href="#" class="nav-logo px-2">
+                src="/assets/images/icons/hamburgerMenu.png" alt="">
+                
+            <a routerLink="home" class="nav-logo px-2">
                 <div class="col">
                     <div class="row">
                         Mokelumne River
@@ -24,7 +23,7 @@
 
         <div *ngIf="navBool" class="col-12 col-lg no-pad no-margin center center-y">
             <div class="">
-                <div class="btn nav-item" type="button">
+                <div routerLink="home" class="nav-item">
                     Home
                 </div>
             </div>
@@ -32,34 +31,34 @@
 
         <div *ngIf="navBool" class="col-12 col-lg no-pad no-margin center center-y">
             <div class="dropdown">
-                <div class="btn nav-item dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                <div class="nav-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     About Us
                 </div>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">About Us</a>
-                    <a class="dropdown-item" href="#">Parent Dogs</a>
-                    <a class="dropdown-item" href="#">Previous Puppies</a>
+                    <a routerLink="aboutUs" class="dropdown-item">About Us</a>
+                    <a routerLink="home" class="dropdown-item">Parent Dogs</a>
+                    <a routerLink="home" class="dropdown-item">Previous Puppies</a>
                 </div>
             </div>
         </div>
 
         <div *ngIf="navBool" class="col-12 col-lg no-pad no-margin center center-y">
             <div class="dropdown">
-                <div class="btn nav-item dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                <div class="nav-item dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Puppies
                 </div>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Available Puppies</a>
-                    <a class="dropdown-item" href="#">Reserve A Future Puppy</a>
+                    <a routerLink="availablePuppies" class="dropdown-item">Available Puppies</a>
+                    <a routerLink="reserveFuture" class="dropdown-item">Future Litter Notification</a>
                 </div>
             </div>
         </div>
 
         <div *ngIf="navBool" class="col-12 col-lg no-pad no-margin center center-y">
             <div class="">
-                <div class="btn nav-item" type="button">
+                <div routerLink="home" class="nav-item">
                     Contact Us
                 </div>
             </div>
@@ -82,18 +81,17 @@
         <div *ngIf="navBool" class="col-12 col-lg no-pad no-margin center">
             <div class="no-pad no-margin d-flex justify-content-between center-y" style="width: 150px;">
                 <a class="no-pad no-margin" href="https://www.facebook.com/" target="_blank">
-                    <img class="center-y nav-social-img" src="/assets/images/facebook.png" alt="">
+                    <img class="center-y nav-social-img" src="/assets/images/icons/facebook.png" alt="">
                 </a>
                 <a class="no-pad no-margin" href="https://www.pinterest.com/" target="_blank">
-                    <img class="center-y nav-social-img" src="/assets/images/pinterest.png" alt="">
+                    <img class="center-y nav-social-img" src="/assets/images/icons/pinterest.png" alt="">
                 </a>
                 <a class="no-pad no-margin" href="https://twitter.com/" target="_blank">
-                    <img class="center-y nav-social-img" src="/assets/images/twitter.png" alt="">
+                    <img class="center-y nav-social-img" src="/assets/images/icons/twitter.png" alt="">
                 </a>
             </div>
         </div>
 
 
 
-    </div>
 </div>

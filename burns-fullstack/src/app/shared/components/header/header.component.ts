@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(window.screen.width < 800){
+    if(window.screen.width < 995){
       this.buttonBool = true;
       this.navBool = false;
     }

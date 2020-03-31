@@ -1,40 +1,126 @@
-<div class="container-fluid p-0 firstbg" style="background-image: url(assets/images/aussie9.JPEG);">
+<!-- <div class="container-fluid p-0 firstbg" style="background-image: url(assets/images/backgrounds/aussie9.JPEG);"> -->
+<div class="container-fluid p-0 firstbg center" style="background-image: url(assets/images/backgrounds/aussie9.JPEG);">
     <div class="row hero-content center center-y">
-        <img class="img-fluid" src="/assets/images/watermark.png" alt="">
-        <h1 class="pacifico-font" style="font-size: 5rem;">Mokelumne River</h1>
+        <!-- <img class="watermark" src="/assets/images/logos/watermark.png" alt=""> -->
+        <h1 class="logo-font">Mokelumne River</h1>
+        <h1 class="center logo-font2">[Mini Aussies]</h1>
+        <div class="custom-hr"></div>
+        <h1 class="mainPageBS">Purebred Miniature Australian Shepherds</h1>
+        <!-- <h1 class="mainPageBS">Purebred Miniature Australian Shepherds</h1> -->
+
+        <div *ngIf="true" class="container-fluid center m-3">
+            <div class="row center">
+                <h2 class="pb-0 text-dark avl-pups">We Currently Have</h2>
+                <h2 routerLink="/availablePuppies" class="puppyLink">Available Puppies</h2>
+                <h2 class="pb-0 text-dark avl-pups">!!!</h2>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<div class="container-fluid secondbg one-edge-shadow" style="background-image: url(assets/images/BgWallpaper2.JPEG);">
-    <div class="hero-content center center-y" style="background-color: blue; width: 100px; height: 100px;">
-        <h1>asdfasdf</h1>
+<div class="container-fluid secondbg one-edge-shadow center"
+    style="background-image: url(assets/images/backgrounds/BgWallpaper2.JPEG);">
+    <div class="container" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));">
+        <div class="row center">
+            <h1 class="pt-5 center text-center">High Quality Purebred Mini Aussies</h1>
+
+            <div id="carouselExampleControls" class="carousel slide p-0 my-5" style="border: 3px solid black;"
+                data-ride="carousel">
+                <div class="carousel-inner" style="width: fit-content;">
+                    <div class="carousel-item active">
+                        <img class="d-block img-fluid" src="/assets/images/slidePhotos/aussie1.JPEG" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid" src="/assets/images/slidePhotos/aussie2.JPEG" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid" src="/assets/images/slidePhotos/aussie3.JPEG" alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <div class="row p-0 center">
+
+                <div class="col-12 col-sm-6 p-0 pb-5 center center-y">
+                    <div class="row p-0 center" style="max-width: 95vw;">
+                        <h6 class="center text-center">ASDR Registered</h6>
+                        <img src="/assets/images/logos/ASDRLogo.png" alt="Logo" class="img-fluid"
+                            style="max-height: 80px;">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 p-0 pb-5 center center-y">
+                    <div class="row p-0 center">
+                        <h6 class="center text-center">AKC Registered</h6>
+                        <img src="/assets/images/logos/akcLogo.png" alt="Logo" class="img-fluid p-0 akcLogo">
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="container-fluid thirdbg" style="background-image: url(assets/images/BgWallpaper1.JPEG);">
-    <div class="hero-content center center-y" style="background-color: yellow; width: 100px; height: 100px;">
-        <h1 class="spinner">asdfasdf</h1>
-    </div>
-</div>
+<div class="container-fluid thirdbg" style="background-image: url(assets/images/backgrounds/BgWallpaper1.JPEG);">
+    <div class="container bg-white" style="padding-left: 7vw; padding-right: 7vw;">
+        <h1 class="center text-shadow pt-5">About Mini Aussies</h1>
 
-<!-- <div id="carouselExampleControls" class="col-8 carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img class="d-block img-fluid" src="/assets/images/aussie1.JPEG" alt="First slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block img-fluid" src="/assets/images/aussie2.JPEG" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block img-fluid" src="/assets/images/aussie3.JPEG" alt="Third slide">
+        <div class="col no-pad no-margin pb-5">
+            <div class="row no-pad no-margin py-3 my-5 aboutCard center">
+                <h2>Body structure</h2>
+                <p class="p-indent">
+                    The Miniature American Shepherd is a small dog, with the breed standard specifying a height of 14-18
+                    inches (36–46 cm) for males and 13-17 inches (33–43 cm) for females.[4] Body structure suggests
+                    strength, but not bulkiness, with a clean-cut head and neck proportional to the body. The topline is
+                    level from withers to hip joint. The tail may be a natural bobtail, or may be docked to a length not
+                    exceeding three inches.
+                </p>
+            </div>
+
+            <div class="row no-pad no-margin py-3 mb-5 aboutCard center">
+                <h2>Coat</h2>
+                <p class="p-indent">
+                    The coat is of medium length and may be straight or wavy, with moderate feathering present on the
+                    backs of the legs. Both sexes have a moderate mane and frill, though it is generally more pronounced
+                    in males than in females. The undercoat varies according to the climate in which the dog dwells.
+                </p>
+                <p class="p-indent">
+                    Recognized coat colors in the breed are black, blue merle, red merle, and red (liver). There are no
+                    specified quantities of marbling, flecking, or blotching for merle coats. Tan markings are
+                    permissible
+                    anywhere around the eyes and face, as well as on the feet, legs, chest, muzzle, underside of the
+                    neck
+                    and body, under the tail and on the undersides of the ears. White markings are permissible, but
+                    limited
+                    to the muzzle, cheeks, crown of the head, in a blaze on the head, in a partial or full collar on the
+                    neck and on the belly, chest, front legs and hind legs to the hock. White markings should not cover
+                    more
+                    than 25% of the ear and white body markings outside of the above permitted areas may disqualify the
+                    dog
+                    from competition.
+                </p>
+            </div>
+
+            <div class="row no-pad no-margin py-3 aboutCard center">
+                <h2>Temperament</h2>
+                <p class="p-indent">
+                    The Miniature American Shepherd is described as an intelligent working breed with strong instincts
+                    for herding and flock guarding. It is easy to train, enthusiastic and persistent toward its work,
+                    and is protective, devoted and loyal to its family. The Miniature American Shepherd is neither shy
+                    nor aggressive; any aggressive behavior is a disqualifying characteristic per the AKC.
+
+                </p>
+            </div>
         </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div> -->
+    <!-- <div class="hero-content center center-y">
+    </div> -->
+</div>

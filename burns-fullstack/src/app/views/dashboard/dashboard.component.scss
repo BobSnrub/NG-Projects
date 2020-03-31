@@ -1,0 +1,36 @@
+.dashboard{
+    background-color: rgb(238, 238, 238);
+}
+
+.dragDrop{
+    border: 3px dashed rgb(104, 104, 104);
+    background-color: white;
+}
+
+.hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: .3px;
+    border-top: 1px solid rgb(143, 143, 143);
+    border-bottom: 1px solid rgb(39, 39, 39);
+}
+
+.dashboard-input{
+    border: 1.5px solid gray;
+    border-radius: 2px;
+    font-size: 18px;
+    background-color: white;
+}
+
+.btn-secondary{
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(77, 77, 77);
+}
+
+.bgBlue{
+    // border-left: 2px solid #4c4c4c;
+    // border-right: 2px solid #4c4c4c;
+    // border-top: 2px solid #4c4c4c;
+    border-bottom: 2px solid #4c4c4c;
+    background-color: #73bff6;
+}

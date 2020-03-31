@@ -1,0 +1,77 @@
+.title-bg {
+  height: 75vh;
+  // background-attachment: fixed;
+  // background-position: center;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+  z-index: 1;
+  -webkit-box-shadow: 0 8px 6px -5px black;
+  -moz-box-shadow: 0 8px 6px -5px black;
+  box-shadow: 0 8px 6px -5px black;
+}
+
+.bg-footer {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  border-top: 2px solid #6cc1ff;
+
+  h1 {
+    color: white;
+    z-index: 2;
+    margin: 0px;
+    font-size: 24px;
+  }
+}
+
+.headerSpaceComp {
+  padding-top: 125px;
+}
+
+.pupCard {
+  background-color: white;
+  border: 2px solid #6cc1ff;
+  border-radius: 10px;
+
+  img {
+    border-radius: 10px;
+    border: 4px solid black;
+  }
+
+  margin-bottom: 8vw;
+  // margin-right: 5vw;
+  // margin-left: 5vw;
+}
+
+.indent {
+  padding-left: 2vw;
+}
+
+.reserve-button {
+  color: white;
+  background-color: rgb(87, 87, 87);
+  border: 3px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  cursor: pointer;
+
+  // background-image: url("src/assets/images/other/woodButton.png");
+}
+.reserve-button:hover {
+  // font-size: 21px;
+  background-color: rgb(100, 100, 100);
+}
+
+// .woodTexture{
+//     background-image: url("src/assets/images/other/woodTexture.jpg");
+//     background-repeat: repeat;
+//     background-size: 50vw;
+
+// }

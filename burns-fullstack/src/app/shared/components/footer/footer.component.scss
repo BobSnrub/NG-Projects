@@ -1,0 +1,33 @@
+.footer {
+  //   height: 25vh;
+  background-color: rgb(39, 39, 39);
+  border-top: 3px solid #6cc1ff;
+  // bottom: 0;
+  // right: 0;
+  // position: fixed;
+  // z-index: 0;
+}
+
+.nav-social-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  // border: 1px solid #6cc1ff;
+  padding: 6px;
+  cursor: pointer;
+}
+.nav-social-img:hover {
+  background-color: rgb(61, 61, 61);
+  border: 1px solid #6cc1ff;
+  padding: 3px;
+}
+
+.akcLogo {
+  border-radius: 50%;
+  border: 2px solid #6cc1ff;
+  max-width: 125px;
+  max-height: 125px;
+  min-width: 75px;
+  min-height: 75px;
+  padding: 0.3vw;
+}

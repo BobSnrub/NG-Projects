@@ -1,14 +1,98 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/scss/bootstrap";
 
+.dark-bg{
+  background-color: #4c4c4c;
+}
+
 @font-face {
   font-family: pacifico-font;
   src: url("/assets/fonts/Pacifico-Regular.ttf");
 }
-
 .pacifico-font{
     font-family: pacifico-font;
 }
+
+@font-face {
+  font-family: calli-font;
+  src: url("/assets/fonts/Calligraffitti-Regular.ttf");
+}
+.calli-font{
+  font-family: calli-font;
+}
+
+@font-face {
+  font-family: cinzel-font;
+  src: url("/assets/fonts/Cinzel-Black.ttf");
+}
+.cinzel-font{
+  font-family: cinzel-font;
+}
+
+@font-face {
+  font-family: country-font;
+  src: url("/assets/fonts/Countryside-YdKj.ttf");
+}
+.country-font{
+  font-family: country-font;
+}
+
+@font-face {
+  font-family: lemon-font;
+  src: url("/assets/fonts/LemonJellyPersonalUse-dEqR.ttf");
+}
+.lemon-font{
+  font-family: lemon-font;
+}
+
+@font-face {
+  font-family: tomatoe-font;
+  src: url("/assets/fonts/Tomatoes-O8L8.ttf");
+}
+.tomatoe-font{
+  font-family: tomatoe-font;
+}
+
+@font-face {
+  font-family: cassandra-font;
+  src: url("/assets/fonts/CassandraPersonalUseRegular-3BjG.ttf");
+}
+.cassandra-font{
+  font-family: cassandra-font;
+}
+
+@font-face {
+  font-family: vegan-font;
+  src: url("/assets/fonts/VeganStylePersonalUse-5Y58.ttf");
+}
+.vegan-font{
+  font-family: vegan-font;
+}
+
+@font-face {
+  font-family: painter-font;
+  src: url("/assets/fonts/PainterPersonalUseOnly-Br0w.ttf");
+}
+.painter-font{
+  font-family: painter-font;
+}
+
+@font-face {
+  font-family: happy-font;
+  src: url("/assets/fonts/MyHappyEndingRegular-Lx7G.ttf");
+}
+.happy-font{
+  font-family: happy-font;
+}
+
+@font-face {
+  font-family: slab-font;
+  src: url("/assets/fonts/RobotoSlabMedium-vmAEA.ttf");
+}
+.slab-font{
+  font-family: slab-font;
+}
+
 
 .center {
   display: flex;
@@ -26,4 +110,8 @@
 
 .no-margin {
   margin: 0px;
+}
+
+.text-shadow{
+  text-shadow: -1px -1px 0 #6cc1ff, 1px -1px 0 #6cc1ff, -1px 1px 0 #6cc1ff, 1px 1px 0 #6cc1ff;
 }

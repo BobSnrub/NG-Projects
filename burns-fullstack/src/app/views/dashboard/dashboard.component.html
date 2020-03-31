@@ -1,0 +1,64 @@
+<!-- <p>dashboard works!</p> -->
+
+<div class="container-fluid center d-flex align-items-end"
+    style="height: 150px; color: white; background-color: #272727; border-bottom: 3px solid #6cc1ff">
+    <h2 class="center">Dashboard</h2>
+</div>
+
+<div class="container d-flex justify-content-around bgBlue py-1">
+    <div routerLink="createPost" class="btn btn-secondary px-4 text-success">Create Post</div>
+    <div class="btn btn-secondary px-4 text-warning">Edit Post</div>
+    <div class="btn btn-secondary px-4 text-danger">Delete Post</div>
+</div>
+
+<div class="container dashboard pt-4 pb-2">
+
+    <h3 class="center pb-3">Create Post:</h3>
+
+    <div class="dragDrop pb-3">
+        <p-fileUpload class="" name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" multiple="multiple"
+            accept="image/*" maxFileSize="1000000">
+            <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                </ul>
+            </ng-template>
+        </p-fileUpload>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="container-fluid bg-white" style="border: 2px double rgb(146, 146, 146);">
+
+        <div class="row p-0 pb-3 pt-2">
+            <div class="col-12 col-sm-6 col-md-4">
+                <h4>Name:</h4>
+                <input class="dashboard-input col-12" type="text">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <h4>Coat:</h4>
+                <input class="dashboard-input col-12" type="text">
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <h4>Eyes:</h4>
+                <input class="dashboard-input col-12" type="text">
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <h4>Price:</h4>
+                <input class="dashboard-input col-12" type="text">
+            </div>
+            <div class="col-12 col-md-8">
+                <h4>Description:</h4>
+                <textarea class="dashboard-input col-12 py-0"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="center p-4">
+        <div class="btn-lg btn-primary">Create Post</div>
+    </div>
+
+</div>
