@@ -6,7 +6,7 @@
 </div>
 
 <div class="container d-flex justify-content-around bgBlue py-1">
-    <div routerLink="createPost" class="btn btn-secondary px-4 text-success">Create Post</div>
+    <div class="btn btn-secondary px-4 text-success">Create Post</div>
     <div class="btn btn-secondary px-4 text-warning">Edit Post</div>
     <div class="btn btn-secondary px-4 text-danger">Delete Post</div>
 </div>
@@ -30,7 +30,34 @@
 
     <div class="container-fluid bg-white" style="border: 2px double rgb(146, 146, 146);">
 
-        <div class="row p-0 pb-3 pt-2">
+        <form [formGroup]="listingForm" (ngSubmit)="submitForm()" class="row p-0 pb-3 pt-2">
+            <div class="col-12 col-sm-6 col-md-4 form-row">
+                <h4>Name:</h4>
+                <input #name formControlName="name" class="dashboard-input col-12" type="text">
+                <!-- <div class="tiny-txt text-danger" *ngIf="name.value == ''">Cannot Be Empty</div> -->
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <h4>Coat:</h4>
+                <input #coat formControlName="coat" class="dashboard-input col-12" type="text">
+                <!-- <div class="tiny-txt text-danger" *ngIf="coat.value == ''">Cannot Be Empty</div> -->
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <h4>Eyes:</h4>
+                <input class="dashboard-input col-12" type="text">
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-4">
+                <h4>Price:</h4>
+                <input class="dashboard-input col-12" type="text">
+            </div>
+            <div class="col-12 col-md-8">
+                <h4>Description:</h4>
+                <textarea class="dashboard-input col-12 py-0"></textarea>
+            </div>
+        </form>
+
+        <!-- <div class="row p-0 pb-3 pt-2">
             <div class="col-12 col-sm-6 col-md-4">
                 <h4>Name:</h4>
                 <input class="dashboard-input col-12" type="text">
@@ -53,12 +80,18 @@
                 <h4>Description:</h4>
                 <textarea class="dashboard-input col-12 py-0"></textarea>
             </div>
-        </div>
+        </div> -->
 
     </div>
 
     <div class="center p-4">
-        <div class="btn-lg btn-primary">Create Post</div>
+        <div (click)="onSubmission(name.value, coat.value)" class="btn-lg btn-primary">Create Post</div>
     </div>
 
+    <!-- <iframe src="https://discordapp.com/widget?id=694723029489418271&theme=dark" width="350" height="500"
+        allowtransparency="true" frameborder="0"></iframe> -->
+
+        <!-- <div class="row center">
+            <iframe class="col-6" src="https://titanembeds.com/embed/295085744249110529" style="height: 80vh;"></iframe>
+        </div> -->
 </div>

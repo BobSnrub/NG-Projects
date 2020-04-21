@@ -1,0 +1,89 @@
+.title-bg {
+    height: 75vh;
+    // background-attachment: fixed;
+    // background-position: center;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    z-index: 1;
+    -webkit-box-shadow: 0 8px 6px -5px black;
+    -moz-box-shadow: 0 8px 6px -5px black;
+    box-shadow: 0 8px 6px -5px black;
+}
+
+.bg-footer {
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    border-top: 2px solid #6cc1ff;
+
+    h1 {
+        color: white;
+        z-index: 2;
+        margin: 0px;
+        font-size: 24px;
+    }
+}
+
+.headerSpaceComp {
+    padding-top: 125px;
+    padding-bottom: 100px;
+}
+
+.page-height {
+    min-height: 50vh;
+}
+
+.input-style {
+    // width: 50%;
+    font-size: 18px;
+    // font-weight: bold;
+    border-radius: 3px;
+    border: 0px;
+    //   color: white;
+}
+
+.wht-color {
+    color: white;
+}
+
+.form-control {
+    font-size: 18px;
+}
+
+// ::placeholder {
+//   /* Chrome, Firefox, Opera, Safari 10.1+ */
+//   color: rgb(200, 200, 200);
+//   opacity: 1; /* Firefox */
+// }
+
+// :-ms-input-placeholder {
+//   /* Internet Explorer 10-11 */
+//   color: rgb(200, 200, 200);
+// }
+
+// ::-ms-input-placeholder {
+//   /* Microsoft Edge */
+//   color: rgb(200, 200, 200);
+// }
+
+.submitBtn {
+    border: 2px solid #6cc1ff;
+    font-size: 20px;
+}
+
+.title {
+    font-size: 3vw;
+    color: white;
+}
+
+.dropdown-item{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+.dropdown-item:hover{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}

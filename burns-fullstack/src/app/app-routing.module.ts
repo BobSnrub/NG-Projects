@@ -6,18 +6,25 @@ import { AvailablePuppiesComponent } from './views/available-puppies/available-p
 import { ReserveFutureComponent } from './views/reserve-future/reserve-future.component';
 import { CheckoutComponent } from './views/checkout/checkout.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { GalleryComponent } from './views/gallery/gallery.component';
+import { ContactFormComponent } from './views/contact-form/contact-form.component';
+import { ParentdogsComponent } from './views/parentdogs/parentdogs.component';
+import { LoginComponent } from './views/login/login.component';
 
 
 const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "aboutUs", component: AboutUsComponent},
   {path: "availablePuppies", component: AvailablePuppiesComponent},
+  {path: "contact", component: ContactFormComponent},
+  {path: "parents", component: ParentdogsComponent},
+  {path: "gallery", component: GalleryComponent},
   {path: "checkout", component: CheckoutComponent},
+  {path: "login", component: LoginComponent},
   {path: "reserveFuture", component: ReserveFutureComponent},
-  // {path: "dashboard", redirectTo: "dashboard/createPost"},
-  // {path: "dashboard/createPost", component: DashboardComponent},
-  {path: "dashboard", redirectTo: "/createPost"},
-  {path: "/createPost", component: DashboardComponent},
+  {path: "dashboard", component: DashboardComponent},
+  // {path: "dashboard", redirectTo: "/createPost"},
+  // {path: "/createPost", component: DashboardComponent},
   {path: "**", redirectTo: "/home"},
 ];
 
