@@ -30,12 +30,14 @@ export class LoginService {
 
     this.http.post(this.loginURL, credentials).subscribe(data => {
       this.token = data;
+      
       // Grabbing the value inside of the object
       this.token = this.token.token;
+
       // localStorage.setItem("loginToken", this.token);
       // console.log(localStorage.getItem("loginToken"));
       // console.log(this.token);
-      
+
       this.router.navigate(['dashboard']);
     });
 

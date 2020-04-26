@@ -8,8 +8,88 @@
 <div class="container d-flex justify-content-around bgBlue py-1">
     <div class="btn btn-secondary px-4 text-success">Create Post</div>
     <div class="btn btn-secondary px-4 text-warning">Edit Post</div>
-    <div class="btn btn-secondary px-4 text-danger">Delete Post</div>
+    <div data-toggle="modal" data-target="#exampleModalLong" class="btn btn-secondary px-4 text-danger">Delete Post
+    </div>
 </div>
+
+
+<!-- this is my modal html this is my modal html this is my modal html this is my modal html -->
+<!-- this is my modal html this is my modal html this is my modal html this is my modal html -->
+<div class="modal fade p-0" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <h3 class="center pb-2">Delete a Listing:</h3>
+                <div class="col-12 my-hr no-pad"></div>
+
+                <div *ngIf="!pPost.length" class="py-2 d-flex justify-content-center no-pad no-margin">
+                    <h3>No listings!</h3>
+                </div>
+
+                <div *ngFor="let puppy of pPost; let i = index" class="no-pad no-margin">
+                    <div class="row no-pad">
+                        <div class="row no-pad center-y">
+                            <img class="trash-button center" src="/assets/images/icons/filled-trash.png" alt="{{puppy.name}}" width="50px" height="50px">
+                        </div>
+                        <div class="row no-pad center-y">
+                            <img class="img-fluid py-3 px-3" src="/assets/images/other/aussie9.JPEG" alt="{{puppy.name}}" width="150px">
+                        </div>
+                        <div class="col-12 my-hr no-pad"></div>
+                        <!-- <h1>{{puppy.id}}</h1> -->
+                    </div>
+                </div>
+
+
+                <!-- <div *ngIf="cartItems.length == 0" class="py-2 d-flex justify-content-center no-pad no-margin">
+                    <h3>Your cart is empty!</h3>
+                </div>
+                <div class="no-pad no-margin" *ngFor="let item of cartItems; let i = index">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-1 d-flex align-items-center">
+                            <img (click)="removeFromCart(item, i)" src="/assets/images/x-png.png" alt="delete product" height="25px" style="cursor: pointer;">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img src="{{item.imgSource}}" alt="product item" class="img-fluid">
+                        </div>
+                        <div
+                            class="col-12 col-sm-6 col-lg-3 no-pad no-margin d-flex justify-content-center align-items-center">
+                            <p>{{item.pName}}</p>
+                        </div>
+                        <div class="col-md-3 col-5 no-pad no-margin d-flex justify-content-center align-items-center">
+                            <div class="row no-pad no-margin ui-inputgroup">
+                                <button (click)="removeSingle(item, i)" class="btn pink-bg l-btn-br no-pad no-margin font-weight-bold">-</button>
+                                <h5
+                                    class="px-2 no-pad no-margin d-flex justify-content-center align-items-center border border-secondary border-right-0 border-left-0">
+                                    {{item.quantity}}</h5>
+                                <button (click)="addSingle(item)" class="btn pink-bg r-btn-br no-pad no-margin font-weight-bold">+</button>
+                            </div>
+                        </div>
+                        <div
+                            class="col-sm-6 col-lg-2 no-pad no-margin d-flex justify-content-center align-items-center">
+                            <h4>${{item.price}}</h4>
+                        </div>
+                    </div>
+                    <hr>
+                </div> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- this is my modal html this is my modal html this is my modal html this is my modal html -->
+<!-- this is my modal html this is my modal html this is my modal html this is my modal html -->
+
 
 <div class="container dashboard pt-4 pb-2">
 
@@ -43,55 +123,43 @@
             </div>
             <div class="col-12 col-sm-6 col-md-4">
                 <h4>Eyes:</h4>
-                <input class="dashboard-input col-12" type="text">
+                <input #eyes formControlName="eyes" class="dashboard-input col-12" type="text">
+                <div class="text-danger tiny-txt" *ngIf="eyes.required">Password must be at least 6 characters</div>
             </div>
 
+            <div class="col-12 col-sm-6">
+                <h4>DOB:</h4>
+                <input #dob formControlName="dob" class="dashboard-input col-12" type="text" placeholder="mm/dd/yyyy">
+                <div class="text-danger tiny-txt" *ngIf="price.invalid">Invalid Price</div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <h4>Sex:</h4>
+                <input #sex formControlName="sex" class="dashboard-input col-12">
+                <div class="text-danger tiny-txt" *ngIf="sex.invalid">Invalid Price</div>
+            </div>
 
             <div class="col-12 col-sm-6 col-md-4">
                 <h4>Price:</h4>
-                <input class="dashboard-input col-12" type="text">
+                <input #price formControlName="price" class="dashboard-input col-12" type="number" placeholder="0">
+                <div class="text-danger tiny-txt" *ngIf="price.invalid">Invalid Price</div>
             </div>
             <div class="col-12 col-md-8">
                 <h4>Description:</h4>
-                <textarea class="dashboard-input col-12 py-0"></textarea>
+                <textarea #desc formControlName="desc" class="dashboard-input col-12 py-0"></textarea>
             </div>
         </form>
-
-        <!-- <div class="row p-0 pb-3 pt-2">
-            <div class="col-12 col-sm-6 col-md-4">
-                <h4>Name:</h4>
-                <input class="dashboard-input col-12" type="text">
-            </div>
-            <div class="col-12 col-sm-6 col-md-4">
-                <h4>Coat:</h4>
-                <input class="dashboard-input col-12" type="text">
-            </div>
-            <div class="col-12 col-sm-6 col-md-4">
-                <h4>Eyes:</h4>
-                <input class="dashboard-input col-12" type="text">
-            </div>
-
-
-            <div class="col-12 col-sm-6 col-md-4">
-                <h4>Price:</h4>
-                <input class="dashboard-input col-12" type="text">
-            </div>
-            <div class="col-12 col-md-8">
-                <h4>Description:</h4>
-                <textarea class="dashboard-input col-12 py-0"></textarea>
-            </div>
-        </div> -->
 
     </div>
 
     <div class="center p-4">
-        <div (click)="onSubmission(name.value, coat.value)" class="btn-lg btn-primary">Create Post</div>
+        <div (click)="onSubmission(name.value, coat.value, eyes.value, sex.value, dob.value, price.value, desc.value)"
+            class="btn btn-primary">Create Post</div>
     </div>
 
     <!-- <iframe src="https://discordapp.com/widget?id=694723029489418271&theme=dark" width="350" height="500"
         allowtransparency="true" frameborder="0"></iframe> -->
 
-        <!-- <div class="row center">
+    <!-- <div class="row center">
             <iframe class="col-6" src="https://titanembeds.com/embed/295085744249110529" style="height: 80vh;"></iframe>
         </div> -->
 </div>

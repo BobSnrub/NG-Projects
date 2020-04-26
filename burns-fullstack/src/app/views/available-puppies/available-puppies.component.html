@@ -7,50 +7,64 @@
 
 <div class="container pt-5 pb-5">
 
-    <div *ngFor="let puppy of localArr; let i = index" class="no-pad no-margin">
+    <div *ngFor="let puppy of myObj; let i = index" class="no-pad no-margin">
 
         <div *ngIf="i % 2 == 0; else elseFlip" class="row pupCard p-3 woodTexture">
             <div class="col-12 col-md-6 no-margin no-pad center-y center order-2 order-md-1">
-                <img src="{{puppy.imgPath}}" alt="{{puppy?.name}}" class="img-fluid">
+                <img src="{{puppy.imgUrl}}" alt="{{puppy?.name}}" class="img-fluid">
             </div>
 
-            <div class="col-12 col-md-6 no-margin no-pad center order-1 order-md-2">
+            <div class="col-12 col-md-6 no-margin no-pad center order-1 order-md-2 content-border">
 
-                <div class="no-pad m-4">
+                <div class="col no-pad m-4">
                     <h1 class="center">{{puppy.name}}</h1>
 
                     <div class="row no-pad">
-                        <div class="col-6 no-pad">
-                            <h4 class="center">Coat Type:</h4>
-                            <h6 class="center">{{puppy.coat}}</h6>
+
+                        <div class="col-6 no-pad pr-1">
+                            <div class="no-pad content-border">
+                                <div class="no-pad">
+                                    <h4 class="center text-center">Coat Type:</h4>
+                                </div>
+                                <div class="no-pad">
+                                    <h6 class="center">{{puppy.coat}}</h6>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6 no-pad">
-                            <h4 class="center">Eye color:</h4>
-                            <h6 class="center">{{puppy.eyes}}</h6>
+
+                        <div class="col-6 no-pad pl-1">
+                            <div class="no-pad content-border">
+                                <div class="no-pad">
+                                    <h4 class="centert text-center">Eye color:</h4>
+                                </div>
+                                <div class="no-pad">
+                                    <h6 class="center">{{puppy.eyes}}</h6>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
 
-                    <h4 class="indent">Description</h4>
-                    <p>
-                        {{puppy.desc}}
-                    </p>
-
-                    <!-- <div class="no-pad no-margin center center-y m-auto" style="width: 225px; height: 75px;">
-                        <div class="reserve-button px-3 py-1 center">Reserve Now</div>
-                    </div> -->
-
-                    <div class="row">
-                        <div class="col">
-                            <h2>$2000</h2>
+                    <div class="row no-pad mt-2 mb-4 p-2 content-border">
+                        <div class="col-12 no-pad">
+                            <h4 class="">Description:</h4>
                         </div>
-                        <div class="col d-flex justify-content-end">
-                            <div routerLink="/checkout" class="reserve-button px-4 py-2 center">Reserve Now</div>
+                        <div class="col-12 no-pad">
+                            <p class="mb-1">
+                                {{puppy.desc}}
+                            </p>
                         </div>
                     </div>
-                    <!-- <div class="no-pad no-margin center center-y mt-auto">
-                        <div routerLink="/checkout" class="reserve-button px-4 py-2 center">Reserve Now</div>
-                    </div> -->
+
+                    <div class="row no-pad center-y">
+                        <div class="col no-pad center">
+                            <h2 class="no-margin">${{puppy.price}}</h2>
+                        </div>
+                        <div class="col no-pad d-flex center">
+                            <div routerLink="/checkout" class="reserve-button px-4 py-2 center text-center">Reserve Now</div>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -61,27 +75,59 @@
         <ng-template #elseFlip>
             <div class="row pupCard p-3">
                 <div class="col-12 col-md-6 no-margin no-pad center-y center order-1 order-md-2">
-                    <img src="{{puppy.imgPath}}" alt="" class="img-fluid">
+                    <img src="{{puppy.imgUrl}}" alt="{{puppy.name}}" class="img-fluid">
                 </div>
 
-                <div class="col-12 col-md-6 no-margin no-pad center order-md-1">
+                <div class="col-12 col-md-6 no-margin no-pad center order-md-1 content-border">
 
-                    <div class="no-pad m-4">
+                    <div class="col no-pad m-4">
                         <h1 class="center">{{puppy.name}}</h1>
 
-                        <h4 class="indent">Coat Type:</h4>
-                        <h6>{{puppy.coat}}</h6>
+                        <div class="row no-pad">
 
-                        <h4 class="indent">Eye color:</h4>
-                        <h6>{{puppy.eyes}}</h6>
+                            <div class="col-6 no-pad pr-1">
+                                <div class="no-pad content-border">
+                                    <div class="no-pad">
+                                        <h4 class="center text-center">Coat Type:</h4>
+                                    </div>
+                                    <div class="no-pad">
+                                        <h6 class="center">{{puppy.coat}}</h6>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <h4 class="indent">Description</h4>
-                        <p>
-                            {{puppy.desc}}
-                        </p>
+                            <div class="col-6 no-pad pl-1">
+                                <div class="no-pad content-border">
+                                    <div class="no-pad">
+                                        <h4 class="centert text-center">Eye color:</h4>
+                                    </div>
+                                    <div class="no-pad">
+                                        <h6 class="center">{{puppy.eyes}}</h6>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="no-pad no-margin center center-y">
-                            <div routerLink="/checkout" class="reserve-button px-4 py-2 center">Reserve Now</div>
+                        </div>
+
+
+                        <div class="row no-pad mt-2 mb-4 p-2 content-border">
+                            <div class="col-12 no-pad">
+                                <h4 class="">Description:</h4>
+                            </div>
+                            <div class="col-12 no-pad">
+                                <p class="mb-1">
+                                    {{puppy.desc}}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row no-pad center-y">
+                            <div class="col no-pad center">
+                                <h2 class="no-margin">${{puppy.price}}</h2>
+                            </div>
+                            <div class="col no-pad d-flex center">
+                                <div routerLink="/checkout" class="reserve-button px-4 py-2 center text-center">Reserve Now</div>
+                            </div>
                         </div>
 
                     </div>

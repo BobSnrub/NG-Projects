@@ -14,33 +14,46 @@ export class AvailablePuppiesComponent implements OnInit {
   private googleSheet: Subscription;
   private availablePuppiesURL = 'https://spreadsheets.google.com/feeds/list/1VC0CQeN-PsY00ym5oUVJkqy3tJfkZ7qBEOP5OvjULtc/1/public/full?alt=json';
   private localArr: Puppypost[] = [];
+  private listingSub: any;
 
 
+  private myObj;
   constructor(private http: HttpClient, private dService: DataService) {
+    // this.listingSub = this.getGameData();
     this.getGameData();
+    // console.log(this.listingSub);
   }
 
   ngOnInit() {
   }
 
-  async getGameData() {
-    this.googleSheet = this.http.get<any>(this.availablePuppiesURL).subscribe(
-      xVar => {
-        for (let i = 0; i < xVar.feed.entry.length; i++) {
-          let stepArr: Puppypost = {
-            id: xVar.feed.entry[i].gsx$id.$t as number,
-            name: xVar.feed.entry[i].gsx$name.$t,
-            coat: xVar.feed.entry[i].gsx$coat.$t,
-            eyes: xVar.feed.entry[i].gsx$eyes.$t,
-            sex: xVar.feed.entry[i].gsx$sex.$t,
-            price: xVar.feed.entry[i].gsx$price.$t as number,
-            desc: xVar.feed.entry[i].gsx$desc.$t,
-            imgPath: xVar.feed.entry[i].gsx$imgpath.$t,
-          };
-          this.localArr.push(stepArr);
-        }
-        console.log(this.localArr);
-      }
-    );
+  getGameData() {
+
+    let puppyObj = this.dService.GetPosts();
+
+    puppyObj.subscribe(x => {
+      console.log(x);
+      this.myObj = x;
+      console.log(this.myObj[1].id);
+    });
+
+    console.log(this.myObj);
+  }
+
+  createLocalArr(arr: Puppypost[]) {
+    this.listingSub = this.getGameData();
+    for (let i = 0; i < this.listingSub.length; i++) {
+      let stepArr: Puppypost = {
+        id: this.listingSub[i].id,
+        name: "asdf",
+        coat: "asdf",
+        eyes: "asdf",
+        sex: "asdf",
+        dob: "asdf",
+        price: "asdf",
+        desc: "asdf",
+        imgUrl: "asdf",
+      };
+    }
   }
 }

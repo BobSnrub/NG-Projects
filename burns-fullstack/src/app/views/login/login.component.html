@@ -13,26 +13,29 @@
                     <h5 class="card-header">Login Below</h5>
                     <div class="card-body">
                         <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
-    
+
                             <div class="form-row">
                                 <label for="username">Username</label>
-                                <input #uName type="text" id="username" formControlName="username" class="form-control" />
-                                <small class="text-danger" *ngIf="username.invalid"> Username is required </small>
+                                <input #uName type="text" id="username" formControlName="username"
+                                    class="form-control"/>
+                                <div class="text-danger tiny-txt" *ngIf="username.invalid"> Username is required </div>
                             </div>
-    
+
                             <div class="form-row">
                                 <div class="form-group col">
                                     <label for="password">Password</label>
                                     <input #pWord type="password" id="password" formControlName="password"
                                         class="form-control" />
-                                    <div class="" *ngIf="pWord.value == ''">Password is required</div>
-                                    <div class="text-danger" *ngIf="password.errors?.minlength">Password must be at least 6 characters</div>
+                                    <div class="text-danger tiny-txt" *ngIf="password.value == ''">Password is required</div>
+                                    <!-- <div class="text-danger tiny-txt" *ngIf="password.required"> Password is required </div> -->
+                                    <div class="text-danger tiny-txt" *ngIf="password.errors?.minlength">Password must be at
+                                        least 6 characters</div>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary mr-1">Login</button>
+                                <!-- <button class="btn btn-primary mr-1">Login</button> -->
                                 <button (click)='onSubmission(uName.value,pWord.value)'
-                                    class="btn btn-primary mr-1">something else</button>
+                                    class="btn btn-primary mr-1 px-4">Login</button>
                             </div>
                         </form>
                     </div>

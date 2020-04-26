@@ -30,99 +30,114 @@ import { Puppypost } from 'src/app/interfaces/puppypost';
 })
 export class DashboardComponent implements OnInit {
 
-    listingForm: FormGroup;
+    private listingForm: FormGroup;
 
-    postCreds: Puppypost = {
-        id: undefined,
-        name: '',
-        coat: '',
-        eyes: '',
-        sex: '',
-        price: undefined,
-        desc: '',
-        imgPath: ''
-    };
+    private postToAdd: Puppypost;
+
+    private pPost;
 
     get name() { return this.listingForm.get('name'); }
     get coat() { return this.listingForm.get('coat'); }
+    get eyes() { return this.listingForm.get('eyes'); }
+    get sex() { return this.listingForm.get('sex'); }
+    get dob() { return this.listingForm.get('dob'); }
+    get price() { return this.listingForm.get('price'); }
+    get desc() { return this.listingForm.get('desc'); }
 
     uploadedFiles: any[] = [];
-
-    // pPost = {
-    //     "id": 1,
-    //     "name": "Sniffy",
-    //     "price": "2000",
-    //     "dateBorn": "12/12/2020",
-    //     "description": "Ugly",
-    //     "coat": "blue merle",
-    //     "eyes": "asdf",
-    //     "imgUrl": "https://www.idontgiveoneshit.com/someimg"
-    // };
 
     constructor(private http: HttpClient,
         private formBuilder: FormBuilder,
         private dService: DataService,
-        private messageService: MessageService) { }
+        private messageService: MessageService) {
+
+        this.getGameData();
+    }
 
     ngOnInit() {
         this.listingForm = this.formBuilder.group({
             name: ['', Validators.required],
-            coat: ['', [Validators.required, Validators.minLength(6)]],
+            coat: ['', Validators.required],
+            eyes: ['', Validators.required],
+            sex: ['', [Validators.required]],
+            dob: ['', [Validators.required]],
+            price: ['', [Validators.required]],
+            desc: ['', [Validators.required]],
         });
+
+
+        // this.registerForm = this.formBuilder.group({
+        //     username: ['', Validators.required],
+        //     password: ['', [Validators.required, Validators.minLength(8)]],
+        // });
+
         // this.dService.GetPosts().subscribe(x => console.log(x));
         // this.dService.GetPostById(1).subscribe(x => console.log(x));
     }
 
-    // submitForm() {
-    //     if (this.listingForm.invalid) {
-    //       alert('Fix errors on form');
-    //       // or you can just return
-    //     } else {
-    //       console.log(this.listingForm.value);
-    //       this.lService.Login(this.listingForm.value);
-    //       // Know that we need to do proper validation - this will be in another lecture
-    //       // alert('Succesful!');
-    //       this.listingForm.reset();
-    //     }
-    //   }
 
-    onSubmission(Name: string, Coat: string) {
-        // this.username
-        // this.password
-        this.postCreds.id = 0;
-        this.postCreds.name = Name;
-        this.postCreds.coat = Coat;
-        this.postCreds.eyes = "eyes asdf";
-        this.postCreds.sex = "sex asdf";
-        this.postCreds.price = 2000;
-        this.postCreds.desc = "desc asdf";
-        this.postCreds.imgPath = "imgPath asdf";
 
-        this.dService.CreatePost(this.postCreds);
+    getGameData() {
 
-        // httpOptions = {
-        //     headers: new HttpHeaders({
-        //         'Content-Type': 'application/json',
-        //         Authorization: 'my-auth-token'
-        //     })
-        // };
+        let puppyObj = this.dService.GetPosts();
 
-        // this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'bearer ' + localStorage.getItem("loginToken"));
+        puppyObj.subscribe(x => {
+            console.log(x);
+            this.pPost = x;
+            console.log(this.pPost[1].id);
+        });
 
-        // this.http.get('http://localhost:5000/puppypost', this.httpOptions).subscribe(x => {
-        //     console.log(x)
-        // });
+        console.log(this.pPost);
+    }
 
-        // GetTracks() {
-        //     const tokenInfo = 'bearer ' + this.token;
-        //     console.log(this.token);
-        //     // We use the set here to create an instance of httpOptions with the value we need for the header.
-        //     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'bearer ' + this.token);
-        //     console.log(this.httpOptions.headers);
-        //     this.http.get(this.getTracksURL, this.httpOptions).subscribe(data => {
-        //         console.log(data);
-        //     });
-        // }
+    submitForm() {
+        if (this.listingForm.invalid) {
+            alert('Fix errors on form');
+            // or you can just return
+        } else {
+            console.log(this.listingForm.value);
+            //I need to post the data here
+            // this.lService.Login(this.listingForm.value);
+
+            // Know that we need to do proper validation - this will be in another lecture
+            alert('Succesful!');
+            this.listingForm.reset();
+        }
+    }
+
+    onSubmission(
+        Name: string,
+        Coat: string,
+        Eyes: string,
+        Sex: string,
+        Dob: string,
+        Price: string,
+        Desc: string,
+        // ImgUrl: string
+    ) {
+
+        this.postToAdd = {
+            'id': 0,
+            'name': Name,
+            'coat': Coat,
+            'eyes': Eyes,
+            'sex': Sex,
+            'dob': Dob,
+            'price': Price,
+            'desc': Desc,
+            'imgUrl': "https:localhost:5000/images/ImgPath"
+
+            // this.postCreds.id = 0;
+            // this.postCreds.name = Name;
+            // this.postCreds.coat = Coat;
+            // this.postCreds.eyes = "eyes asdf";
+            // this.postCreds.sex = "sex asdf";
+            // this.postCreds.price = 2000;
+            // this.postCreds.desc = "desc asdf";
+            // this.postCreds.imgPath = "imgPath asdf";
+        }
+
+        this.dService.CreatePost(this.postToAdd);
     }
 
     // GetAll() {

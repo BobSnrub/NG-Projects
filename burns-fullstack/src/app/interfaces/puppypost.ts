@@ -4,7 +4,8 @@ export interface Puppypost {
     coat: string;
     eyes: string;
     sex: string;
-    price: number;
+    dob: string;
+    price: string;
     desc: string;
-    imgPath: string;
+    imgUrl: string;
 }

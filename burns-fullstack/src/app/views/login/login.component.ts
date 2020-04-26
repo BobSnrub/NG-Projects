@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     username: '',
     password: ''
   };
+
   // A quick way to reference fields from the html side
   get username() { return this.registerForm.get('username'); }
   get password() { return this.registerForm.get('password'); }
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit {
   }
   submitForm() {
     if (this.registerForm.invalid) {
-      alert('Fix errors on form');
+      // alert('Username or Password is Incorect');
+      return;
       // or you can just return
     } else {
       console.log(this.registerForm.value);
@@ -47,9 +49,11 @@ export class LoginComponent implements OnInit {
   onSubmission(uName, pWord) {
     // this.username
     // this.password
-    this.loginCreds.username = uName;
-    this.loginCreds.password = pWord;
-
-    this.lService.Login(this.loginCreds);
+    if(!this.registerForm.invalid){
+      this.loginCreds.username = uName;
+      this.loginCreds.password = pWord;
+  
+      this.lService.Login(this.loginCreds);
+    }
   }
 }

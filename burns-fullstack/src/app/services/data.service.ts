@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { Puppypost } from 'src/app/interfaces/puppypost';
 import { environment } from 'src/environments/environment';
+import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -15,26 +16,34 @@ export class DataService {
 
 
   constructor(private http: HttpClient) { }
-  
+
+  // private tileDataArray = [];
+
   public apiUrl = environment.api;
 
-  GetPosts(){
+  GetPosts() {
     return this.http.get(this.apiUrl + 'puppypost');
   }
 
-  GetPostById(id){
+  GetPostById(id) {
     return this.http.get(this.apiUrl + 'puppypost/' + id);
   }
 
-  CreatePost(request: Puppypost){
-    return this.http.post(this.apiUrl + 'puppypost/', request);
-  }
-  
-  UpdatePost(request){
+  CreatePost(request: Puppypost) {
+    console.log(request);
+
+    console.log(this.http.post(this.apiUrl + 'puppypost/', request).subscribe(x => {
+      console.log(x);
+    }));
+
     return this.http.post(this.apiUrl + 'puppypost/', request);
   }
 
-  DeletePostById(id){
+  UpdatePost(request) {
+    return this.http.post(this.apiUrl + 'puppypost/', request);
+  }
+
+  DeletePostById(id) {
     return this.http.delete(this.apiUrl + 'puppypost/' + id);
   }
 
