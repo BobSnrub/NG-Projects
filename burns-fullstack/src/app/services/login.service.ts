@@ -10,15 +10,18 @@ export class LoginService {
   public apiURL = environment.api;
   private loginURL = this.apiURL + 'api/auth/login';
   private getTracksURL = this.apiURL + 'track';
-  private token;
+  public token;
 
   // By setting up httpOptions here we don't have to inline it
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'my-auth-token'
-    })
-  };
+  // httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     Authorization: 'my-auth-token'
+  //   })
+  // };
+  
+  public isLoggedIn = true;
+
   constructor(private http: HttpClient,
     private router: Router) { }
 
@@ -30,27 +33,23 @@ export class LoginService {
 
     this.http.post(this.loginURL, credentials).subscribe(data => {
       this.token = data;
-      
+
       // Grabbing the value inside of the object
       this.token = this.token.token;
 
-      // localStorage.setItem("loginToken", this.token);
-      // console.log(localStorage.getItem("loginToken"));
+      localStorage.setItem("jwtToken", this.token);
+      console.log(localStorage.getItem("jwtToken"));
       // console.log(this.token);
 
       this.router.navigate(['dashboard']);
     });
-
   }
-  // Track url is http://localhost5000/streaming
-  GetTracks() {
-    const tokenInfo = 'bearer ' + this.token;
-    console.log(this.token);
-    // We use the set here to create an instance of httpOptions with the value we need for the header.
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'bearer ' + this.token);
-    console.log(this.httpOptions.headers);
-    this.http.get(this.getTracksURL, this.httpOptions).subscribe(data => {
-      console.log(data);
-    });
+  
+  setLogin(loginValue){
+    this.isLoggedIn = loginValue;
+  }
+
+  getLogin(){
+    return this.isLoggedIn;
   }
 }

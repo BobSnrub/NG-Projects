@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   navBool = false;
 
   constructor() {
-    console.log(window.screen);
+    // console.log(window.screen);
 
     // if(window.screen.width < 800){
     //   this.buttonBool = true;
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
       this.buttonBool = false;
       this.navBool = true;
     }
+    // this.navClicks = 0;
   }
 
   navBtnClick(){

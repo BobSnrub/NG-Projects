@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit {
         private dService: DataService,
         private messageService: MessageService) {
 
-        this.getGameData();
+        this.getListings();
     }
 
     ngOnInit() {
@@ -77,17 +77,16 @@ export class DashboardComponent implements OnInit {
 
 
 
-    getGameData() {
-
+    getListings() {
         let puppyObj = this.dService.GetPosts();
 
         puppyObj.subscribe(x => {
-            console.log(x);
+            // console.log(x);
             this.pPost = x;
-            console.log(this.pPost[1].id);
+            // console.log(this.pPost[1].id);
         });
 
-        console.log(this.pPost);
+        // console.log(this.pPost);
     }
 
     submitForm() {
@@ -125,7 +124,8 @@ export class DashboardComponent implements OnInit {
             'dob': Dob,
             'price': Price,
             'desc': Desc,
-            'imgUrl': "https:localhost:5000/images/ImgPath"
+            'imgUrl': "/assets/images/other/aussie9.JPEG"
+            // 'imgUrl': "https:localhost:5000/images/ImgPath"
 
             // this.postCreds.id = 0;
             // this.postCreds.name = Name;
@@ -138,6 +138,26 @@ export class DashboardComponent implements OnInit {
         }
 
         this.dService.CreatePost(this.postToAdd);
+    }
+
+    ClickGetListings(){
+        this.getListings();
+    }
+
+    DeleteListing(listing: Puppypost) {
+        let listingId = listing.id;
+        this.RemoveLocalPost(listingId);
+        // this.getListings();
+        // console.log(listing);
+        // console.log(listing.id);
+        this.dService.DeletePostById(listingId).subscribe(x => console.log(x));
+    }
+
+    RemoveLocalPost(id: number){
+        let post = this.pPost.find(x => x.id == id);
+        console.log(this.pPost.indexOf(post));
+        this.pPost.splice(this.pPost.indexOf(post), 1)
+        // console.log(post);
     }
 
     // GetAll() {

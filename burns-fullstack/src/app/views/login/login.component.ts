@@ -34,26 +34,29 @@ export class LoginComponent implements OnInit {
   }
   submitForm() {
     if (this.registerForm.invalid) {
-      // alert('Username or Password is Incorect');
+      alert('Username or Password is Incorect');
       return;
       // or you can just return
     } else {
       console.log(this.registerForm.value);
       this.lService.Login(this.registerForm.value);
       // Know that we need to do proper validation - this will be in another lecture
+
       // alert('Succesful!');
       this.registerForm.reset();
     }
   }
+
   // This function is used if you didn't use a reactive form.
-  onSubmission(uName, pWord) {
-    // this.username
-    // this.password
-    if(!this.registerForm.invalid){
-      this.loginCreds.username = uName;
-      this.loginCreds.password = pWord;
+  // onSubmission(uName, pWord) {
+  //   // this.username
+  //   // this.password
+  //   if(!this.registerForm.invalid){
+  //     this.loginCreds.username = uName;
+  //     this.loginCreds.password = pWord;
   
-      this.lService.Login(this.loginCreds);
-    }
-  }
+  //     this.lService.Login(this.loginCreds);
+  //   }
+  //     alert('Username or Password is Incorect');
+  // }
 }

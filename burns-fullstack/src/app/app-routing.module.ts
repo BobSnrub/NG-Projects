@@ -10,6 +10,7 @@ import { GalleryComponent } from './views/gallery/gallery.component';
 import { ContactFormComponent } from './views/contact-form/contact-form.component';
 import { ParentdogsComponent } from './views/parentdogs/parentdogs.component';
 import { LoginComponent } from './views/login/login.component';
+import { AuthGuardService } from './services/guards/auth-guard.service';
 
 
 const routes: Routes = [
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path: "checkout", component: CheckoutComponent},
   {path: "login", component: LoginComponent},
   {path: "reserveFuture", component: ReserveFutureComponent},
-  {path: "dashboard", component: DashboardComponent},
+  {path: "dashboard", component: DashboardComponent, canActivate:[AuthGuardService] },
   // {path: "dashboard", redirectTo: "/createPost"},
   // {path: "/createPost", component: DashboardComponent},
   {path: "**", redirectTo: "/home"},

@@ -2,13 +2,13 @@
 <div class="container-fluid p-0 firstbg center" style="background-image: url(assets/images/backgrounds/aussie9.JPEG);">
     <div class="row hero-content center center-y">
         <!-- <img class="watermark" src="/assets/images/logos/watermark.png" alt=""> -->
-        <h1 class="logo-font">Mokelumne River</h1>
-        <h1 class="center logo-font2">[Mini Aussies]</h1>
-        <div class="custom-hr"></div>
+        <h1 (click)="DashboardNav()" class="col-12 logo-font">Mokelumne River</h1>
+        <h1 class="center logo-font2 pb-5">[Mini Aussies]</h1>
+        <div class="custom-hr" style="margin-top: 175px;"></div>
         <h1 class="mainPageBS">Purebred Miniature Australian Shepherds</h1>
         <!-- <h1 class="mainPageBS">Purebred Miniature Australian Shepherds</h1> -->
 
-        <div *ngIf="true" class="container-fluid center m-3">
+        <div *ngIf="pPost?.length != 0" class="container-fluid center m-3">
             <div class="row center">
                 <h2 class="pb-0 text-dark avl-pups">We Currently Have</h2>
                 <h2 routerLink="/availablePuppies" class="puppyLink">Available Puppies</h2>
@@ -74,7 +74,7 @@
         <h1 class="center text-shadow pt-5">About Mini Aussies</h1>
 
         <div class="col no-pad no-margin pb-5">
-            <div class="row no-pad no-margin py-3 my-5 aboutCard center">
+            <div class="row no-pad no-margin py-3 my-3 aboutCard center">
                 <h2>Body structure</h2>
                 <p class="p-indent">
                     The Miniature American Shepherd is a small dog, with the breed standard specifying a height of 14-18
@@ -85,7 +85,7 @@
                 </p>
             </div>
 
-            <div class="row no-pad no-margin py-3 mb-5 aboutCard center">
+            <div class="row no-pad no-margin py-3 mb-3 aboutCard center">
                 <h2>Coat</h2>
                 <p class="p-indent">
                     The coat is of medium length and may be straight or wavy, with moderate feathering present on the

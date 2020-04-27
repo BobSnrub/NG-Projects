@@ -16,8 +16,8 @@ export class AvailablePuppiesComponent implements OnInit {
   private localArr: Puppypost[] = [];
   private listingSub: any;
 
+  private pPost;
 
-  private myObj;
   constructor(private http: HttpClient, private dService: DataService) {
     // this.listingSub = this.getGameData();
     this.getGameData();
@@ -33,11 +33,14 @@ export class AvailablePuppiesComponent implements OnInit {
 
     puppyObj.subscribe(x => {
       console.log(x);
-      this.myObj = x;
-      console.log(this.myObj[1].id);
+      this.pPost
+   = x;
+      console.log(this.pPost
+    [1].id);
     });
 
-    console.log(this.myObj);
+    console.log(this.pPost
+  );
   }
 
   createLocalArr(arr: Puppypost[]) {

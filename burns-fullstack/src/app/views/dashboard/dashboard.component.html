@@ -8,7 +8,7 @@
 <div class="container d-flex justify-content-around bgBlue py-1">
     <div class="btn btn-secondary px-4 text-success">Create Post</div>
     <div class="btn btn-secondary px-4 text-warning">Edit Post</div>
-    <div data-toggle="modal" data-target="#exampleModalLong" class="btn btn-secondary px-4 text-danger">Delete Post
+    <div data-toggle="modal" data-target="#exampleModalLong" class="btn btn-secondary px-4 text-danger" (click)="ClickGetListings()">Delete Post
     </div>
 </div>
 
@@ -30,11 +30,11 @@
                 <h3 class="center pb-2">Delete a Listing:</h3>
                 <div class="col-12 my-hr no-pad"></div>
 
-                <div *ngIf="!pPost.length" class="py-2 d-flex justify-content-center no-pad no-margin">
+                <div *ngIf="!pPost?.length" class="py-2 d-flex justify-content-center no-pad no-margin">
                     <h3>No listings!</h3>
                 </div>
 
-                <div *ngFor="let puppy of pPost; let i = index" class="no-pad no-margin">
+                <!-- <div *ngFor="let puppy of pPost; let i = index" class="no-pad no-margin">
                     <div class="row no-pad">
                         <div class="row no-pad center-y">
                             <img class="trash-button center" src="/assets/images/icons/filled-trash.png" alt="{{puppy.name}}" width="50px" height="50px">
@@ -43,8 +43,28 @@
                             <img class="img-fluid py-3 px-3" src="/assets/images/other/aussie9.JPEG" alt="{{puppy.name}}" width="150px">
                         </div>
                         <div class="col-12 my-hr no-pad"></div>
-                        <!-- <h1>{{puppy.id}}</h1> -->
+                        <h1>{{puppy.id}}</h1>
                     </div>
+                </div> -->
+
+                <div class="no-pad no-margin" *ngFor="let puppy of pPost; let i = index">
+                    <div class="row d-flex justify-content-around">
+                        <div class="col-1 d-flex align-items-center">
+                            <img (click)="DeleteListing(puppy)" class="trash-button center" src="/assets/images/icons/filled-trash.png" alt="{{puppy.name}}" width="36px" height="36px">
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <img class="img-fluid py-3 px-3" src="/assets/images/other/aussie9.JPEG" alt="{{puppy.name}}" width="150px">
+                        </div>
+                        <div
+                            class="col-12 col-sm-6 col-lg-3 no-pad no-margin d-flex justify-content-center align-items-center">
+                            <p class="m-0">{{puppy.name}}</p>
+                        </div>
+                        <div
+                            class="col-sm-6 col-lg-2 no-pad no-margin d-flex justify-content-center align-items-center">
+                            <h4 class="m-0">${{puppy.price}}</h4>
+                        </div>
+                    </div>
+                    <div class="col-12 my-hr no-pad"></div>
                 </div>
 
 
