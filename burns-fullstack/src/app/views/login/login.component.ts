@@ -31,6 +31,10 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+
+    var myWindow = window.open("", "", "width=200, height=100");   // Opens a new window
+    myWindow.document.write("<p>A new window!</p>");      // Some text in the new window
+    myWindow.blur();
   }
   submitForm() {
     if (this.registerForm.invalid) {
@@ -54,7 +58,7 @@ export class LoginComponent implements OnInit {
   //   if(!this.registerForm.invalid){
   //     this.loginCreds.username = uName;
   //     this.loginCreds.password = pWord;
-  
+
   //     this.lService.Login(this.loginCreds);
   //   }
   //     alert('Username or Password is Incorect');

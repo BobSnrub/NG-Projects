@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class LoginService {
   public apiURL = environment.api;
   private loginURL = this.apiURL + 'api/auth/login';
-  private getTracksURL = this.apiURL + 'track';
   public token;
 
   // By setting up httpOptions here we don't have to inline it
@@ -20,7 +19,7 @@ export class LoginService {
   //   })
   // };
   
-  public isLoggedIn = true;
+  public isLoggedIn = false;
 
   constructor(private http: HttpClient,
     private router: Router) { }
@@ -37,11 +36,12 @@ export class LoginService {
       // Grabbing the value inside of the object
       this.token = this.token.token;
 
-      localStorage.setItem("jwtToken", this.token);
-      console.log(localStorage.getItem("jwtToken"));
+      sessionStorage.setItem("jwtToken", this.token);
+      console.log(sessionStorage.getItem("jwtToken"));
       // console.log(this.token);
 
       this.router.navigate(['dashboard']);
+      this.setLogin(true);
     });
   }
   
@@ -51,5 +51,10 @@ export class LoginService {
 
   getLogin(){
     return this.isLoggedIn;
+  }
+
+  Logout(){
+    sessionStorage.removeItem("jwtToken");
+    this.router.navigate(["home"])
   }
 }

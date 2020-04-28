@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Puppypost } from 'src/app/interfaces/puppypost';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -49,6 +50,7 @@ export class DashboardComponent implements OnInit {
     constructor(private http: HttpClient,
         private formBuilder: FormBuilder,
         private dService: DataService,
+        private lService: LoginService,
         private messageService: MessageService) {
 
         this.getListings();
@@ -65,6 +67,7 @@ export class DashboardComponent implements OnInit {
             desc: ['', [Validators.required]],
         });
 
+        // this.CheckToken();
 
         // this.registerForm = this.formBuilder.group({
         //     username: ['', Validators.required],
@@ -75,7 +78,12 @@ export class DashboardComponent implements OnInit {
         // this.dService.GetPostById(1).subscribe(x => console.log(x));
     }
 
-
+    // CheckToken() {
+        // while (true) {
+        //     setTimeout(function () { console.log("setTimeout"); }, 3000);
+        //     console.log("while")
+        // }
+    // }
 
     getListings() {
         let puppyObj = this.dService.GetPosts();
@@ -140,7 +148,7 @@ export class DashboardComponent implements OnInit {
         this.dService.CreatePost(this.postToAdd);
     }
 
-    ClickGetListings(){
+    ClickGetListings() {
         this.getListings();
     }
 
@@ -153,7 +161,7 @@ export class DashboardComponent implements OnInit {
         this.dService.DeletePostById(listingId).subscribe(x => console.log(x));
     }
 
-    RemoveLocalPost(id: number){
+    RemoveLocalPost(id: number) {
         let post = this.pPost.find(x => x.id == id);
         console.log(this.pPost.indexOf(post));
         this.pPost.splice(this.pPost.indexOf(post), 1)
@@ -168,5 +176,9 @@ export class DashboardComponent implements OnInit {
     // UpdatePost(postToUpdate: Puppypost) {
     //     this.dService.UpdatePost(postToUpdate).subscribe(x => console.log(x));
     // }
+
+    Logout() {
+        this.lService.Logout();
+    }
 
 }

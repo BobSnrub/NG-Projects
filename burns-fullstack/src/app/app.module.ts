@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {ButtonModule} from 'primeng/button';
 import {FileUploadModule} from 'primeng/fileupload';
+import { JwtModule } from "@auth0/angular-jwt";
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +21,10 @@ import { ContactFormComponent } from './views/contact-form/contact-form.componen
 import { GalleryComponent } from './views/gallery/gallery.component';
 import { ParentdogsComponent } from './views/parentdogs/parentdogs.component';
 import { LoginComponent } from './views/login/login.component';
+
+export function tokenGetter() {
+  return sessionStorage.getItem("jwtToken");
+}
 
 @NgModule({
   declarations: [
@@ -44,7 +49,14 @@ import { LoginComponent } from './views/login/login.component';
     HttpClientModule,
     ButtonModule,
     FileUploadModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["localhost:5000"],
+        blacklistedRoutes: ["example.com/examplebadroute/"]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

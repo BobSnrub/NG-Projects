@@ -24,9 +24,10 @@ const routes: Routes = [
   {path: "login", component: LoginComponent},
   {path: "reserveFuture", component: ReserveFutureComponent},
   {path: "dashboard", component: DashboardComponent, canActivate:[AuthGuardService] },
+  {path: "", component: HomeComponent},
+  {path: "**", redirectTo: "/home"},
   // {path: "dashboard", redirectTo: "/createPost"},
   // {path: "/createPost", component: DashboardComponent},
-  {path: "**", redirectTo: "/home"},
 ];
 
 @NgModule({

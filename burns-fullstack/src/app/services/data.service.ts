@@ -75,9 +75,9 @@ export class DataService {
   }
 
   GetJwtToken(){
-    this.jwtToken = localStorage.getItem("jwtToken");
+    this.jwtToken = sessionStorage.getItem("jwtToken");
     console.log(this.jwtToken);
-    console.log(localStorage.getItem("jwtToken"));
+    console.log(sessionStorage.getItem("jwtToken"));
   }
 
 }
