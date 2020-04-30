@@ -21,6 +21,7 @@ import { ContactFormComponent } from './views/contact-form/contact-form.componen
 import { GalleryComponent } from './views/gallery/gallery.component';
 import { ParentdogsComponent } from './views/parentdogs/parentdogs.component';
 import { LoginComponent } from './views/login/login.component';
+import { CreateAccountComponent } from './views/create-account/create-account.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem("jwtToken");
@@ -41,7 +42,8 @@ export function tokenGetter() {
     ContactFormComponent,
     GalleryComponent,
     ParentdogsComponent,
-    LoginComponent
+    LoginComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,

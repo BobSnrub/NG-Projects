@@ -5,18 +5,20 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-create-account',
+  templateUrl: './create-account.component.html',
+  styleUrls: ['./create-account.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class CreateAccountComponent implements OnInit {
   registerForm: FormGroup;
   loginCreds = {
+    email: '',
     username: '',
     password: ''
   };
 
   // A quick way to reference fields from the html side
+  get email() { return this.registerForm.get('username'); }
   get username() { return this.registerForm.get('username'); }
   get password() { return this.registerForm.get('password'); }
 
@@ -28,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
+      email: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -40,7 +43,7 @@ export class LoginComponent implements OnInit {
       // or you can just return
     } else {
       console.log(this.registerForm.value);
-      this.lService.Login(this.registerForm.value);
+      this.dService.CreateAccount(this.registerForm.value);
       // Know that we need to do proper validation - this will be in another lecture
 
       // alert('Succesful!');

@@ -33,7 +33,9 @@ export class DashboardComponent implements OnInit {
 
     private listingForm: FormGroup;
 
-    private postToAdd: Puppypost;
+    private createOrUpdate: boolean = true;
+
+    private listingToUpdate: Puppypost;
 
     private pPost;
 
@@ -79,22 +81,19 @@ export class DashboardComponent implements OnInit {
     }
 
     // CheckToken() {
-        // while (true) {
-        //     setTimeout(function () { console.log("setTimeout"); }, 3000);
-        //     console.log("while")
-        // }
+    // while (true) {
+    //     setTimeout(function () { console.log("setTimeout"); }, 3000);
+    //     console.log("while")
+    // }
     // }
 
     getListings() {
         let puppyObj = this.dService.GetPosts();
 
         puppyObj.subscribe(x => {
-            // console.log(x);
             this.pPost = x;
-            // console.log(this.pPost[1].id);
+            // console.log(this.pPost);
         });
-
-        // console.log(this.pPost);
     }
 
     submitForm() {
@@ -122,8 +121,7 @@ export class DashboardComponent implements OnInit {
         Desc: string,
         // ImgUrl: string
     ) {
-
-        this.postToAdd = {
+        let postToAdd: Puppypost = {
             'id': 0,
             'name': Name,
             'coat': Coat,
@@ -133,19 +131,9 @@ export class DashboardComponent implements OnInit {
             'price': Price,
             'desc': Desc,
             'imgUrl': "/assets/images/other/aussie9.JPEG"
-            // 'imgUrl': "https:localhost:5000/images/ImgPath"
-
-            // this.postCreds.id = 0;
-            // this.postCreds.name = Name;
-            // this.postCreds.coat = Coat;
-            // this.postCreds.eyes = "eyes asdf";
-            // this.postCreds.sex = "sex asdf";
-            // this.postCreds.price = 2000;
-            // this.postCreds.desc = "desc asdf";
-            // this.postCreds.imgPath = "imgPath asdf";
         }
 
-        this.dService.CreatePost(this.postToAdd);
+        this.dService.CreatePost(postToAdd);
     }
 
     ClickGetListings() {
@@ -155,10 +143,67 @@ export class DashboardComponent implements OnInit {
     DeleteListing(listing: Puppypost) {
         let listingId = listing.id;
         this.RemoveLocalPost(listingId);
-        // this.getListings();
-        // console.log(listing);
-        // console.log(listing.id);
         this.dService.DeletePostById(listingId).subscribe(x => console.log(x));
+    }
+
+    CreatePostButton() {
+        this.listingForm = this.formBuilder.group({
+            name: ['', Validators.required],
+            coat: ['', Validators.required],
+            eyes: ['', Validators.required],
+            sex: ['', [Validators.required]],
+            dob: ['', [Validators.required]],
+            price: ['', [Validators.required]],
+            desc: ['', [Validators.required]],
+        });
+
+        this.createOrUpdate = true;
+    }
+
+    SelectToUpdate(listing: Puppypost) {
+        this.listingToUpdate = listing;
+        console.log(listing);
+        this.listingForm = this.formBuilder.group({
+            name: [listing.name, Validators.required],
+            coat: [listing.coat, Validators.required],
+            eyes: [listing.eyes, Validators.required],
+            sex: [listing.sex, [Validators.required]],
+            dob: [listing.dob, [Validators.required]],
+            price: [listing.price, [Validators.required]],
+            desc: [listing.desc, [Validators.required]],
+        });
+
+
+        this.createOrUpdate = false;
+
+    }
+
+    UpdateListing(
+        Name: string,
+        Coat: string,
+        Eyes: string,
+        Sex: string,
+        Dob: string,
+        Price: string,
+        Desc: string
+    ) {
+        let postToUpdate: Puppypost = {
+            // 'id': 23,
+            'id': this.listingToUpdate.id,
+            'name': Name,
+            'coat': Coat,
+            'eyes': Eyes,
+            'sex': Sex,
+            'dob': Dob,
+            'price': Price,
+            'desc': Desc,
+            'imgUrl': "/assets/images/other/aussie9.JPEG"
+        }
+        console.log(postToUpdate);
+        this.dService.UpdatePost(postToUpdate).subscribe(x => console.log(x));
+
+        this.createOrUpdate = true;
+        this.listingForm.reset();
     }
 
     RemoveLocalPost(id: number) {
@@ -167,6 +212,7 @@ export class DashboardComponent implements OnInit {
         this.pPost.splice(this.pPost.indexOf(post), 1)
         // console.log(post);
     }
+
 
     // GetAll() {
     //     this.dService.GetPosts().subscribe(x => console.log(x));

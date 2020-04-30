@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { async } from '@angular/core/testing';
 import { LoginService } from './login.service';
 import { ConditionalExpr } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -25,20 +26,14 @@ export class DataService {
     })
   };
 
-  constructor(private http: HttpClient, private lService: LoginService) { }
+  constructor(private http: HttpClient, private lService: LoginService, private router: Router) { }
 
   // private tileDataArray = [];
 
   public apiUrl = environment.api;
+  private accountURL = this.apiUrl + 'account/newadmin';
 
   GetPosts() {
-    // const tokenHeader = 'bearer ' + this.lService.token;
-    // console.log(this.lService.token);
-    // this.httpOptions.headers = this.httpOptions.headers.set('Authorization', tokenHeader);
-    // console.log(this.httpOptions.headers);
-
-    // return this.http.get(this.apiUrl + 'puppypost/', this.httpOptions);
-
     return this.http.get(this.apiUrl + 'puppypost/');
   }
 
@@ -67,7 +62,8 @@ export class DataService {
   }
 
   UpdatePost(request) {
-    return this.http.post(this.apiUrl + 'puppypost/', request);
+    // console.log(request);
+    return this.http.post(this.apiUrl + 'puppypost/update/', request);
   }
 
   DeletePostById(id) {
@@ -78,6 +74,17 @@ export class DataService {
     this.jwtToken = sessionStorage.getItem("jwtToken");
     console.log(this.jwtToken);
     console.log(sessionStorage.getItem("jwtToken"));
+  }
+
+  CreateAccount(credentials: any) {
+    this.GetJwtToken();
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'bearer ' + this.jwtToken);
+
+    // return this.http.post(this.apiUrl + 'puppypost/', request, this.httpOptions).subscribe(x => console.log(x));
+    this.http.post(this.accountURL, credentials, this.httpOptions).subscribe(data => {});
+
+    sessionStorage.removeItem("jwtToken");
+    this.router.navigate(['login']);
   }
 
 }

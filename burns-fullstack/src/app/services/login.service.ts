@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,12 @@ export class LoginService {
   private loginURL = this.apiURL + 'api/auth/login';
   public token;
 
-  // By setting up httpOptions here we don't have to inline it
-  // httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     Authorization: 'my-auth-token'
-  //   })
-  // };
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'my-auth-token'
+    })
+  };
   
   public isLoggedIn = false;
 

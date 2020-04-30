@@ -11,6 +11,7 @@ import { ContactFormComponent } from './views/contact-form/contact-form.componen
 import { ParentdogsComponent } from './views/parentdogs/parentdogs.component';
 import { LoginComponent } from './views/login/login.component';
 import { AuthGuardService } from './services/guards/auth-guard.service';
+import { CreateAccountComponent } from './views/create-account/create-account.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: "gallery", component: GalleryComponent},
   {path: "checkout", component: CheckoutComponent},
   {path: "login", component: LoginComponent},
+  {path: "createAccount", component: CreateAccountComponent, canActivate:[AuthGuardService]},
   {path: "reserveFuture", component: ReserveFutureComponent},
   {path: "dashboard", component: DashboardComponent, canActivate:[AuthGuardService] },
   {path: "", component: HomeComponent},
