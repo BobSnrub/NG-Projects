@@ -37,7 +37,7 @@ export class LoginService {
       this.token = this.token.token;
 
       sessionStorage.setItem("jwtToken", this.token);
-      console.log(sessionStorage.getItem("jwtToken"));
+      // console.log(sessionStorage.getItem("jwtToken"));
       // console.log(this.token);
 
       this.router.navigate(['dashboard']);

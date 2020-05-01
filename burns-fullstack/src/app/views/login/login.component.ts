@@ -11,10 +11,10 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
   registerForm: FormGroup;
-  loginCreds = {
-    username: '',
-    password: ''
-  };
+  // loginCreds = {
+  //   username: '',
+  //   password: ''
+  // };
 
   // A quick way to reference fields from the html side
   get username() { return this.registerForm.get('username'); }
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       return;
       // or you can just return
     } else {
-      console.log(this.registerForm.value);
+      // console.log(this.registerForm.value);
       this.lService.Login(this.registerForm.value);
       // Know that we need to do proper validation - this will be in another lecture
 

@@ -12,15 +12,11 @@ export class HeaderComponent implements OnInit {
   navBool = false;
 
   constructor() {
-    // console.log(window.screen);
-
-    // if(window.screen.width < 800){
-    //   this.buttonBool = true;
-    //   this.navBool = false;
-    // }
   }
 
   ngOnInit() {
+    // this is for the toggle menue button while on mobile devices.  
+    // In order to check this you must use the mobile device feature in the inspector
     if(window.screen.width < 995){
       this.buttonBool = true;
       this.navBool = false;
@@ -29,7 +25,6 @@ export class HeaderComponent implements OnInit {
       this.buttonBool = false;
       this.navBool = true;
     }
-    // this.navClicks = 0;
   }
 
   navBtnClick(){

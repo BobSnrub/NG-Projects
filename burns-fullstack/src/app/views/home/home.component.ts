@@ -30,6 +30,9 @@ export class HomeComponent implements OnInit {
     // console.log(this.pPost);
   }
   
+  
+  //  this function is a 5 click shortcut to the login page.  
+  //  Click on the home page hero image where it says "Mokelumne River" 5 times within 1 second
   DashboardNav(){
     this.navClicks++;
     if(this.navClicks == 5){
@@ -38,7 +41,7 @@ export class HomeComponent implements OnInit {
     else if(this.navClicks == 1){
       setTimeout(() => {  this.navClicks = 0; }, 1000);
     }
-    console.log(this.navClicks)
+    // console.log(this.navClicks)
   }
 
 }

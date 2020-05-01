@@ -28,8 +28,6 @@ export class DataService {
 
   constructor(private http: HttpClient, private lService: LoginService, private router: Router) { }
 
-  // private tileDataArray = [];
-
   public apiUrl = environment.api;
   private accountURL = this.apiUrl + 'account/newadmin';
 
@@ -45,35 +43,29 @@ export class DataService {
   CreatePost(request: Puppypost) {
     this.GetJwtToken();
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'bearer ' + this.jwtToken);
-    console.log(this.httpOptions.headers);
-
-    // this.http.get(this.apiUrl + 'puppypost/' + id, this.httpOptions);
-    // this.http.post(this.apiUrl + 'puppypost/', request, this.httpOptions).subscribe(x => console.log(x));
-    return this.http.post(this.apiUrl + 'puppypost/', request, this.httpOptions).subscribe(x => console.log(x));
-
-
-    // console.log(request);
-
-    // console.log(this.http.post(this.apiUrl + 'puppypost/', request).subscribe(x => {
-    //   console.log(x);
-    // }));
-
-    // return this.http.post(this.apiUrl + 'puppypost/', request);
+    return this.http.post(this.apiUrl + 'puppypost/', request, this.httpOptions).subscribe(x => {
+      console.log(x);
+      alert("Post Created");
+    });
   }
 
   UpdatePost(request) {
     // console.log(request);
-    return this.http.post(this.apiUrl + 'puppypost/update/', request);
+    this.GetJwtToken();
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'bearer ' + this.jwtToken);
+    return this.http.post(this.apiUrl + 'puppypost/update/', request, this.httpOptions);
   }
 
   DeletePostById(id) {
-    return this.http.delete(this.apiUrl + 'puppypost/' + id);
+    this.GetJwtToken();
+    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'bearer ' + this.jwtToken);
+    return this.http.delete(this.apiUrl + 'puppypost/' + id, this.httpOptions);
   }
 
   GetJwtToken(){
     this.jwtToken = sessionStorage.getItem("jwtToken");
-    console.log(this.jwtToken);
-    console.log(sessionStorage.getItem("jwtToken"));
+    // console.log(this.jwtToken);
+    // console.log(sessionStorage.getItem("jwtToken"));
   }
 
   CreateAccount(credentials: any) {

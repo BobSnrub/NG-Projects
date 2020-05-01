@@ -68,24 +68,7 @@ export class DashboardComponent implements OnInit {
             price: ['', [Validators.required]],
             desc: ['', [Validators.required]],
         });
-
-        // this.CheckToken();
-
-        // this.registerForm = this.formBuilder.group({
-        //     username: ['', Validators.required],
-        //     password: ['', [Validators.required, Validators.minLength(8)]],
-        // });
-
-        // this.dService.GetPosts().subscribe(x => console.log(x));
-        // this.dService.GetPostById(1).subscribe(x => console.log(x));
     }
-
-    // CheckToken() {
-    // while (true) {
-    //     setTimeout(function () { console.log("setTimeout"); }, 3000);
-    //     console.log("while")
-    // }
-    // }
 
     getListings() {
         let puppyObj = this.dService.GetPosts();
@@ -134,6 +117,7 @@ export class DashboardComponent implements OnInit {
         }
 
         this.dService.CreatePost(postToAdd);
+        this.listingForm.reset();
     }
 
     ClickGetListings() {
@@ -144,6 +128,7 @@ export class DashboardComponent implements OnInit {
         let listingId = listing.id;
         this.RemoveLocalPost(listingId);
         this.dService.DeletePostById(listingId).subscribe(x => console.log(x));
+        alert("Post Deleted");
     }
 
     CreatePostButton() {
@@ -162,7 +147,7 @@ export class DashboardComponent implements OnInit {
 
     SelectToUpdate(listing: Puppypost) {
         this.listingToUpdate = listing;
-        console.log(listing);
+        // console.log(listing);
         this.listingForm = this.formBuilder.group({
             name: [listing.name, Validators.required],
             coat: [listing.coat, Validators.required],
@@ -199,9 +184,9 @@ export class DashboardComponent implements OnInit {
             'desc': Desc,
             'imgUrl': "/assets/images/other/aussie9.JPEG"
         }
-        console.log(postToUpdate);
-        this.dService.UpdatePost(postToUpdate).subscribe(x => console.log(x));
-
+        // console.log(postToUpdate);
+        this.dService.UpdatePost(postToUpdate).subscribe(x => {});
+        alert("Post Updated");
         this.createOrUpdate = true;
         this.listingForm.reset();
     }
