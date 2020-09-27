@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   DashboardNav(){
     this.navClicks++;
     if(this.navClicks == 5){
-      this.router.navigate(['login']);
+      this.router.navigate(['dashboard']);
     }
     else if(this.navClicks == 1){
       setTimeout(() => {  this.navClicks = 0; }, 1000);
